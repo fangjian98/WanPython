@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2 align="center">IMDB Top 1000</h2>
+    <table width="100%">
+            <tr style="background-color:#ddeedd;">
+                <th>海报</th>
+                <th>电影名</th>
+                <th>发布年</th>
+                <th>证书</th>
+                <th>时长</th>
+                <th>类型</th>
+                <th>IMDB评分</th>
+                <th>概述</th>
+                <th>Meta评分</th>
+                <th>导演</th>
+            </tr>
+            {% for row in df %}
+            <tr>
+                <td><img src="{{ row[0] }}" width="67" height="98"></td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5]}}</td>
+                <td>{{ row[6] }}</td>
+                <td>{{ row[7] }}</td>
+                <td>{{ row[8] }}</td>
+                <td>{{ row[9] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    <hr>
+
+    <div>
+        {% for page in range(1,pages+1) %}
+            <a href='{{url_for('read_csv',page_num=page,limits=limits)}}'>{{ loop.index }}</a>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

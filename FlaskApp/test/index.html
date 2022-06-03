@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>电影</h2>
+    <div>
+    {% for row in df %}
+        <li>{{row[2]}}</li>
+    {% endfor %}
+    <div>
+
+    <hr>
+
+    <div>
+        {% for page in range(pages+1) %}
+            <a href='{{url_for('read_csv',page_num=page,limits=limits)}}'>{{ loop.index }}</a>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

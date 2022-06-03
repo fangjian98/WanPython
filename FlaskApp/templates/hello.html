@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--引入echarts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.3.2/echarts.min.js"></script>
+</head>
+<body>
+    <!-- 为 ECharts 准备一个定义了宽高的 DOM -->
+    <div id="main" style="width: 900px;height:600px;"></div>
+    <script type="text/javascript">
+             // 基于准备好的dom，初始化echarts实例
+             var myChart = echarts.init(document.getElementById('main'));
+
+             // 指定图表的配置项和数据
+             var option = {
+               tooltip: {
+                 trigger: 'item'
+               },
+               legend: {
+                 top: '5%',
+                 left: 'center'
+               },
+               series: [
+                 {
+                   name: 'Access From',
+                   type: 'pie',
+                   radius: ['40%', '70%'],
+                   avoidLabelOverlap: false,
+                   itemStyle: {
+                     borderRadius: 10,
+                     borderColor: '#fff',
+                     borderWidth: 2
+                   },
+                   label: {
+                     show: false,
+                     position: 'center'
+                   },
+                   emphasis: {
+                     label: {
+                       show: true,
+                       fontSize: '40',
+                       fontWeight: 'bold'
+                     }
+                   },
+                   labelLine: {
+                     show: false
+                   },
+                   data: {{data|tojson}}
+                 }
+               ]
+             };
+
+             // 使用刚指定的配置项和数据显示图表。
+             myChart.setOption(option);
+
+       </script>
+</body>
+</html>
