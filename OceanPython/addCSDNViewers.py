@@ -4,6 +4,7 @@ from selenium import webdriver
 
 browser = webdriver.Chrome()
 
+# weixin_44008788 为 CSDN User ID
 BASE_URL = 'https://blog.csdn.net/weixin_44008788/article/list/'
 circle = []
 for i in range(1, 6):
