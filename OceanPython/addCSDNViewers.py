@@ -3,6 +3,8 @@ import time
 from selenium import webdriver
 
 browser = webdriver.Chrome()
+# 页面下滑
+# browser.execute_script("window.scrollBy(0,1080)")
 
 # weixin_44008788 为 CSDN User ID
 BASE_URL = 'https://blog.csdn.net/weixin_44008788/article/list/'
