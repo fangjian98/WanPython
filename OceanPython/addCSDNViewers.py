@@ -2,7 +2,7 @@ import random
 import time
 from selenium import webdriver
 
-browser = webdriver.Chrome()
+# browser = webdriver.Chrome()
 # 页面下滑
 # browser.execute_script("window.scrollBy(0,1080)")
 
@@ -12,13 +12,18 @@ circle = []
 for i in range(1, 6):
     circle.append(BASE_URL + str(i))
 
-for r in circle:
-    url = r
-    print(url)
-    browser.get(url)
-    for i in range(1, 4):
-        print(i)
-        for link in browser.find_elements_by_xpath('//h4[@class=""]/a'):
-            link.click()
-            time.sleep(random.randrange(0, 6))
-        time.sleep(random.randrange(0, 9))
+for j in range(1, 200):
+    print("循环次数："+str(j))
+    for r in circle:
+        url = r
+        print(url)
+        browser = webdriver.Chrome()
+        browser.get(url)
+        for i in range(1, 2):
+            print(i)
+            for link in browser.find_elements_by_xpath('//h4[@class=""]/a'):
+                link.click()
+                time.sleep(random.randrange(0, 6))
+            time.sleep(random.randrange(0, 9))
+        browser.quit()
+
