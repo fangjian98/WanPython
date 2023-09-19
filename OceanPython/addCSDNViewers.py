@@ -1,6 +1,7 @@
 import random
 import time
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 # browser = webdriver.Chrome()
 # 页面下滑
@@ -21,7 +22,10 @@ for j in range(1, 200):
         browser.get(url)
         for i in range(1, 2):
             print(i)
-            for link in browser.find_elements_by_xpath('//h4[@class=""]/a'):
+            # for lib selenium:v4.4.2
+            # for link in browser.find_elements_by_xpath('//h4[@class=""]/a'):
+            # for lib selenium the latest version
+            for link in browser.find_elements(By.XPATH, r'//h4[@class=""]/a'):
                 link.click()
                 time.sleep(random.randrange(0, 6))
             time.sleep(random.randrange(0, 9))
